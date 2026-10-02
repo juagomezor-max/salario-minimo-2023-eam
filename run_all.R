@@ -69,8 +69,11 @@ for (p in pasos) {
   log <- paste0("_tmp_log_", p$nombre, ".txt")
   t0 <- Sys.time()
 
-  codigo <- system2("Rscript", shQuote(p$ruta), stdout = log, stderr = log,
-                     env = paste0("CORRER_HONESTDID=", Sys.getenv("CORRER_HONESTDID")))
+  # CORRER_HONESTDID ya quedó fijada con Sys.setenv() arriba; los
+  # subprocesos de Rscript la heredan solos (no hace falta -- y en Windows
+  # rompe system2() con código de salida 5 sin ningún mensaje -- pasarla
+  # explícitamente por el argumento env=).
+  codigo <- system2("Rscript", shQuote(p$ruta), stdout = log, stderr = log)
 
   dt <- as.numeric(difftime(Sys.time(), t0, units = "secs"))
   tiempos <- rbind(tiempos, data.frame(paso = p$nombre, segundos = round(dt, 1)))
