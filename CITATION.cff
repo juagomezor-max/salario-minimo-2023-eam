@@ -1,0 +1,66 @@
+cff-version: 1.2.0
+message: >-
+  Si usa este código, por favor cítelo como se indica a continuación.
+title: >-
+  Replication Code for "Rigideces laborales y decisiones de la firma"
+  (Labor Rigidities and Firm Decisions)
+type: software
+authors:
+  - family-names: Gómez Orduz
+    given-names: Julio Alejandro
+    orcid: "https://orcid.org/0009-0001-2013-8352"
+  - family-names: Jácome
+    given-names: Nicolás
+version: "1.0"
+date-released: "2026-10-02"
+license: MIT
+abstract: >-
+  Código de estimación (R) para la tesis de Maestría en Economía Aplicada
+  "Rigideces laborales y decisiones de la firma" (Universidad de los
+  Andes), sobre la respuesta de las firmas manufactureras colombianas al
+  aumento del salario mínimo de 2023, usando la Encuesta Anual
+  Manufacturera (EAM) del DANE. Los datos no se incluyen en este
+  repositorio; se descargan de un registro aparte en Zenodo (ver
+  related-identifiers).
+related-identifiers:
+  - type: doi
+    value: 10.5281/zenodo.23097300
+    relation: isSupplementTo
+    description: >-
+      Paquete de datos de replicación (recortado) usado por este código,
+      publicado en Zenodo.
+  - type: doi
+    value: 10.5281/zenodo.19675581
+    relation: isDerivedFrom
+    description: >-
+      Conjunto de microdatos completo del que se derivó el paquete de
+      datos de replicación (Gómez Orduz y Jácome, 2026, v1.1).
+references:
+  - type: generic
+    authors:
+      - family-names: Gómez Orduz
+        given-names: Julio Alejandro
+        orcid: "https://orcid.org/0009-0001-2013-8352"
+      - family-names: Jácome
+        given-names: Nicolás
+    title: "Rigideces laborales y decisiones de la firma"
+    notes: >-
+      Tesis de Maestría en Economía Aplicada, Universidad de los Andes.
+      Director: Andrés Ham.
+    year: 2026
+  - type: dataset
+    authors:
+      - family-names: Gómez Orduz
+        given-names: Julio Alejandro
+        orcid: "https://orcid.org/0009-0001-2013-8352"
+      - family-names: Jácome
+        given-names: Nicolás
+    title: >-
+      Harmonized Microdata from the Annual Manufacturing Survey (EAM) and
+      Supporting Metadata for the Analysis of Labor Shocks in Colombia,
+      2008-2024
+    version: "1.1"
+    year: 2026
+    publisher:
+      name: Zenodo
+    doi: 10.5281/zenodo.19675581

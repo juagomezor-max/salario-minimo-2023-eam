@@ -1,0 +1,31 @@
+medida,especificacion,efecto_pct,p_valor,significancia,observaciones,problema
+Golpe A,Exp 2019 / Crec 2019-23,7.630994514692377,1.6775229053441383e-49,***,5470,Sesgo de división al revés: 2019 en los dos lados
+Golpe A,Exp 2019 / Crec 2021-23,2.4075638786796514,1.1903719233583684e-6,***,5461,"Sin traslape, pero mezcla dos aumentos del mínimo y parte de 2021 (pospandemia)"
+Golpe A,Exp 2019 / Crec 2022-23 (LIMPIA),0.4948516409070501,0.16873819775992735,,5468,"Solo atenuación: sesga hacia cero, es cota inferior"
+Golpe A,Exp 2022 / Crec 2019-23,-1.8813910532318672,1.275307268512483e-4,***,5503,Post-tratamiento + pandemia dentro del outcome
+Golpe A,Exp 2022 / Crec 2021-23,-0.09276519991672814,0.8759084163936885,,5558,Exposición post-tratamiento: el outcome incluye el aumento de 2022
+Golpe A,Exp 2022 / Crec 2022-23,3.1902453623433047,7.059650690977958e-12,***,5599,Sesgo de división: 2022 en los dos lados
+Golpe C,Exp 2019 / Crec 2019-23,7.40592730550779,3.101050359076663e-47,***,5470,Sesgo de división al revés: 2019 en los dos lados
+Golpe C,Exp 2019 / Crec 2021-23,2.2100309088544177,5.239566018452883e-6,***,5461,"Sin traslape, pero mezcla dos aumentos del mínimo y parte de 2021 (pospandemia)"
+Golpe C,Exp 2019 / Crec 2022-23 (LIMPIA),0.38226987105722876,0.3340720027303795,,5468,"Solo atenuación: sesga hacia cero, es cota inferior"
+Golpe C,Exp 2022 / Crec 2019-23,-2.587822666760562,3.3015061928704484e-8,***,5503,Post-tratamiento + pandemia dentro del outcome
+Golpe C,Exp 2022 / Crec 2021-23,-0.43778015330970227,0.4712518631873829,,5558,Exposición post-tratamiento: el outcome incluye el aumento de 2022
+Golpe C,Exp 2022 / Crec 2022-23,3.094417699261467,1.3961262215194853e-10,***,5599,Sesgo de división: 2022 en los dos lados
+Golpe costo,Exp 2019 / Crec 2019-23,13.088134206071715,4.029667122675264e-123,***,5920,Sesgo de división al revés: 2019 en los dos lados
+Golpe costo,Exp 2019 / Crec 2021-23,2.693001043988425,5.284971875255983e-7,***,5904,"Sin traslape, pero mezcla dos aumentos del mínimo y parte de 2021 (pospandemia)"
+Golpe costo,Exp 2019 / Crec 2022-23 (LIMPIA),0.4707698585833019,0.246515435364678,,5916,"Solo atenuación: sesga hacia cero, es cota inferior"
+Golpe costo,Exp 2022 / Crec 2019-23,-4.098253035996003,9.06604930175528e-15,***,5916,Post-tratamiento + pandemia dentro del outcome
+Golpe costo,Exp 2022 / Crec 2021-23,0.34452675818849443,0.6046674338425302,,5970,Exposición post-tratamiento: el outcome incluye el aumento de 2022
+Golpe costo,Exp 2022 / Crec 2022-23,9.04004706172288,7.456159541780226e-48,***,6017,Sesgo de división: 2022 en los dos lados
+Kaitz de obreros,Exp 2019 / Crec 2019-23,7.453452740311863,2.4127090595785413e-42,***,4932,Sesgo de división al revés: 2019 en los dos lados
+Kaitz de obreros,Exp 2019 / Crec 2021-23,1.7999530199931502,0.0014462612543580113,***,4925,"Sin traslape, pero mezcla dos aumentos del mínimo y parte de 2021 (pospandemia)"
+Kaitz de obreros,Exp 2019 / Crec 2022-23 (LIMPIA),0.824959985702441,0.02280021274582692,**,4930,"Solo atenuación: sesga hacia cero, es cota inferior"
+Kaitz de obreros,Exp 2022 / Crec 2019-23,-1.3593998658918438,0.009152596306788172,***,4896,Post-tratamiento + pandemia dentro del outcome
+Kaitz de obreros,Exp 2022 / Crec 2021-23,-0.2638703768583875,0.6647391481637634,,4942,Exposición post-tratamiento: el outcome incluye el aumento de 2022
+Kaitz de obreros,Exp 2022 / Crec 2022-23,2.866257184417753,2.332514889335348e-9,***,4979,Sesgo de división: 2022 en los dos lados
+Proporción de obreros,Exp 2019 / Crec 2019-23,2.095786955492657,1.1888877579920098e-4,***,5916,Sesgo de división al revés: 2019 en los dos lados
+Proporción de obreros,Exp 2019 / Crec 2021-23,1.37202180849666,0.023675530463956974,**,5900,"Sin traslape, pero mezcla dos aumentos del mínimo y parte de 2021 (pospandemia)"
+Proporción de obreros,Exp 2019 / Crec 2022-23 (LIMPIA),0.4254417489254675,0.35453495012478964,,5912,"Solo atenuación: sesga hacia cero, es cota inferior"
+Proporción de obreros,Exp 2022 / Crec 2019-23,-0.06468212062279771,0.9086393743552084,,5917,Post-tratamiento + pandemia dentro del outcome
+Proporción de obreros,Exp 2022 / Crec 2021-23,0.6778418862198026,0.30299877481956183,,5971,Exposición post-tratamiento: el outcome incluye el aumento de 2022
+Proporción de obreros,Exp 2022 / Crec 2022-23,0.1701341053741685,0.7356865812328153,,6017,Sesgo de división: 2022 en los dos lados

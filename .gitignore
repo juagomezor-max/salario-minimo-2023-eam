@@ -1,0 +1,38 @@
+# Datos: se descargan con scripts/00_descargar_datos.R (ver datos/README.md).
+# No se versionan -- son pesados y ya estan publicados en Zenodo.
+datos/*
+!datos/README.md
+
+# renv: solo se versionan renv.lock, renv/activate.R y renv/.gitignore.
+# El resto (biblioteca local, cache, sandbox) lo recrea renv::restore().
+renv/library/
+renv/local/
+renv/cellar/
+renv/lock/
+renv/python/
+renv/sandbox/
+renv/staging/
+
+# Archivos locales de R/RStudio
+.Rhistory
+.RData
+.Ruserdata
+.Rproj.user/
+
+# Device de graficos por defecto que R crea si algun plot no usa ggsave/pdf()
+Rplots.pdf
+
+# Logs de corridas (ver run_all.R)
+_tmp_log_*.txt
+
+# Temporales comunes de sistema y editores
+*.tmp
+*.temp
+*.bak
+*~
+\#*
+.DS_Store
+Thumbs.db
+
+# Archivos-candado de Word (creados mientras un .docx esta abierto)
+~$*.docx
