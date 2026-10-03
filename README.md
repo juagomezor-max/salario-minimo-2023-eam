@@ -154,6 +154,23 @@ Los **datos** (descargados desde Zenodo) tienen su propia licencia (CC BY
 4.0) y su propia fuente (DANE, ver arriba) — no están cubiertos por la
 licencia MIT del código.
 
+## Uso de inteligencia artificial
+
+En la elaboración de este trabajo, los autores utilizaron herramientas de
+inteligencia artificial generativa, en particular Claude (Anthropic), a
+través de su interfaz de conversación y de Claude Code. Estas herramientas
+se emplearon como apoyo en la programación y depuración del código en R,
+en la generación de tablas y gráficos, en la organización del repositorio
+de replicación, en la revisión de la redacción y el estilo de los
+borradores, y en la verificación de la consistencia de cifras y citas
+entre las distintas secciones del documento. La pregunta de investigación,
+el diseño empírico, las decisiones metodológicas, la interpretación de los
+resultados y las conclusiones son responsabilidad exclusiva de los
+autores, quienes revisaron y validaron todo el contenido generado con
+apoyo de estas herramientas. Todos los resultados reportados pueden
+reproducirse con el código y los datos publicados (Gómez Orduz y Jácome,
+2026).
+
 ## Cómo citar
 
 **Código** (este repositorio): ver `CITATION.cff`.
@@ -199,5 +216,17 @@ DANE Annual Manufacturing Survey (EAM).
   Administrativo Nacional de Estadística (DANE): www.dane.gov.co**
 - **License**: code under MIT (`LICENSE`); the data has its own license
   (CC BY 4.0) and source (DANE), not covered by the code's MIT license.
+- **Use of artificial intelligence.** In preparing this work, the authors
+  used generative artificial intelligence tools, in particular Claude
+  (Anthropic), through its chat interface and Claude Code. These tools
+  supported the programming and debugging of the R code, the generation of
+  tables and figures, the organization of the replication repository, the
+  review of the writing and style of drafts, and the verification of the
+  consistency of figures and citations across sections of the document.
+  The research question, empirical design, methodological decisions,
+  interpretation of results, and conclusions are the sole responsibility
+  of the authors, who reviewed and validated all content produced with
+  the support of these tools. All reported results can be reproduced with
+  the published code and data (Gómez Orduz and Jácome, 2026).
 - **Citation**: see `CITATION.cff` for the code; see above for the data
   and thesis citations.
