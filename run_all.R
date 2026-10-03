@@ -32,7 +32,7 @@ if (!exists("CORRER_HONESTDID_RUN_ALL")) {
 Sys.setenv(CORRER_HONESTDID = CORRER_HONESTDID_RUN_ALL)
 
 cat("==============================================================================\n")
-cat("run_all.R -- réplica de 'Rigideces laborales y decisiones de la firma'\n")
+cat("run_all.R -- réplica de 'Salario mínimo y decisiones de la firma'\n")
 cat("==============================================================================\n")
 cat("CORRER_HONESTDID =", Sys.getenv("CORRER_HONESTDID"), "\n")
 

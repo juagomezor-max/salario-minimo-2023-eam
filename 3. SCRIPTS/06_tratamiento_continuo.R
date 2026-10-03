@@ -1,8 +1,8 @@
 # ==============================================================================
 # 06_tratamiento_continuo.R
 #
-# Tesis: Rigideces laborales y decisiones de la firma: evidencia desde choques
-#        en costos laborales en Colombia
+# Tesis: Salario mínimo y decisiones de la firma: evidencia del aumento
+#        de 2023 en la industria manufacturera Colombiana
 # Autores: Julio Gómez y Nicolás Jácome
 #
 # QUÉ HACE ESTE SCRIPT

@@ -12,7 +12,7 @@ authors:
   - family-names: Jácome
     given-names: Nicolás
 version: "1.0"
-date-released: "2026-10-02"
+date-released: "2026-10-03"
 license: MIT
 repository-code: "https://github.com/juagomezor-max/salario-minimo-2023-eam"
 keywords:
@@ -79,9 +79,9 @@ references:
       - family-names: Jácome
         given-names: Nicolás
     title: >-
-      Replication Data Package (Trimmed) for "Rigideces laborales y
-      decisiones de la firma": Firm- and Establishment-Level Panels from
-      the Colombian Annual Manufacturing Survey (EAM), 2008-2024
+      Datos de replicación: Salario mínimo y decisiones de la firma.
+      Evidencia del aumento de 2023 en la industria manufacturera
+      Colombiana
     version: "1.0"
     year: 2026
     publisher:

@@ -1,8 +1,8 @@
 # ==============================================================================
 # 04_decision_medida.R
 #
-# Tesis: Rigideces laborales y decisiones de la firma: evidencia desde choques
-#        en costos laborales en Colombia
+# Tesis: Salario mínimo y decisiones de la firma: evidencia del aumento
+#        de 2023 en la industria manufacturera Colombiana
 # Autores: Julio Gómez y Nicolás Jácome
 #
 # Cierra la decisión de qué medida de exposición usa la tesis y produce la
