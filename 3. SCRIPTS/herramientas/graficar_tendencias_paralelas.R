@@ -17,12 +17,12 @@
 # secciones cambian en 05, hay que actualizar esta copia a mano.
 #
 # Entradas (solo si REESTIMAR):
-#   datos/panel_firma_eam_expalt_completo.rds
-#   datos/exposicion_alternativa_2022.rds
-#   datos/panel_analitico_firma_eam.rds
+#   1. DATOS/panel_firma_eam_expalt_completo.rds
+#   1. DATOS/exposicion_alternativa_2022.rds
+#   1. DATOS/panel_analitico_firma_eam.rds
 # Salidas:
-#   resultados/05_resultados_y_mecanismos/T11b_coeficientes_tendencias.csv
-#   resultados/05_resultados_y_mecanismos/figuras/G09_tendencias_paralelas.png
+#   4. RESULTADOS/05_resultados_y_mecanismos/T11b_coeficientes_tendencias.csv
+#   4. RESULTADOS/05_resultados_y_mecanismos/figuras/G09_tendencias_paralelas.png
 #
 # Se corre desde la raíz del repositorio (abriendo salario-minimo-2023-eam.Rproj).
 # ==============================================================================
@@ -38,7 +38,7 @@ library(scales)
 
 REESTIMAR <- FALSE
 
-CARPETA <- file.path("resultados", "05_resultados_y_mecanismos")
+CARPETA <- file.path("4. RESULTADOS", "05_resultados_y_mecanismos")
 RUTA_CSV <- file.path(CARPETA, "T11b_coeficientes_tendencias.csv")
 RUTA_PNG <- file.path(CARPETA, "figuras", "G09_tendencias_paralelas.png")
 dir.create(dirname(RUTA_PNG), recursive = TRUE, showWarnings = FALSE)
@@ -63,15 +63,15 @@ if (REESTIMAR || !file.exists(RUTA_CSV)) {
   # también allá, o las dos fuentes del mismo gráfico quedarán desalineadas.
   # ============================================================================
 
-  panel <- read_rds(file.path("datos", "panel_firma_eam_expalt_completo.rds")) %>%
+  panel <- read_rds(file.path("1. DATOS", "panel_firma_eam_expalt_completo.rds")) %>%
     mutate(NORDEMP = as.character(NORDEMP),
            ANIO = as.integer(as.character(ANIO)))
 
-  alternativas <- read_rds(file.path("datos", "exposicion_alternativa_2022.rds")) %>%
+  alternativas <- read_rds(file.path("1. DATOS", "exposicion_alternativa_2022.rds")) %>%
     mutate(NORDEMP = as.character(NORDEMP)) %>%
     select(NORDEMP, any_of(c("golpe_c", "golpe_a", "golpe_costo")))
 
-  viejas <- read_rds(file.path("datos", "panel_analitico_firma_eam.rds")) %>%
+  viejas <- read_rds(file.path("1. DATOS", "panel_analitico_firma_eam.rds")) %>%
     mutate(NORDEMP = as.character(NORDEMP),
            ANIO = as.integer(as.character(ANIO))) %>%
     filter(ANIO == 2022) %>%

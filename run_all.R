@@ -19,7 +19,7 @@
 #   $env:CORRER_HONESTDID="TRUE"; Rscript run_all.R   [PowerShell]
 # ).
 #
-# Al final compara las cifras clave en resultados/VERIFICACION.csv contra
+# Al final compara las cifras clave en 4. RESULTADOS/VERIFICACION.csv contra
 # los valores de referencia de la tesis (tolerancia 0.001) y avisa si algo
 # no coincide.
 # ==============================================================================
@@ -48,15 +48,15 @@ if (!identical(version_actual, "4.5.2")) {
 
 # --- 2. Pasos del pipeline ------------------------------------------------------
 pasos <- list(
-  list(nombre = "00_descargar_datos",                 ruta = file.path("scripts", "00_descargar_datos.R")),
-  list(nombre = "02_medidas_exposicion",               ruta = file.path("scripts", "02_medidas_exposicion.R")),
-  list(nombre = "01_descriptivos_y_contexto",          ruta = file.path("scripts", "01_descriptivos_y_contexto.R")),
-  list(nombre = "03_primer_eslabon_medidas",           ruta = file.path("scripts", "03_primer_eslabon_medidas.R")),
-  list(nombre = "04_decision_medida",                  ruta = file.path("scripts", "04_decision_medida.R")),
-  list(nombre = "05_resultados_y_mecanismos",           ruta = file.path("scripts", "05_resultados_y_mecanismos.R")),
-  list(nombre = "06_tratamiento_continuo",              ruta = file.path("scripts", "06_tratamiento_continuo.R")),
-  list(nombre = "herramientas_graficar_tendencias_paralelas", ruta = file.path("scripts", "herramientas", "graficar_tendencias_paralelas.R")),
-  list(nombre = "herramientas_graficar_figuras_tesis",  ruta = file.path("scripts", "herramientas", "graficar_figuras_tesis.R"))
+  list(nombre = "00_descargar_datos",                 ruta = file.path("3. SCRIPTS", "00_descargar_datos.R")),
+  list(nombre = "02_medidas_exposicion",               ruta = file.path("3. SCRIPTS", "02_medidas_exposicion.R")),
+  list(nombre = "01_descriptivos_y_contexto",          ruta = file.path("3. SCRIPTS", "01_descriptivos_y_contexto.R")),
+  list(nombre = "03_primer_eslabon_medidas",           ruta = file.path("3. SCRIPTS", "03_primer_eslabon_medidas.R")),
+  list(nombre = "04_decision_medida",                  ruta = file.path("3. SCRIPTS", "04_decision_medida.R")),
+  list(nombre = "05_resultados_y_mecanismos",           ruta = file.path("3. SCRIPTS", "05_resultados_y_mecanismos.R")),
+  list(nombre = "06_tratamiento_continuo",              ruta = file.path("3. SCRIPTS", "06_tratamiento_continuo.R")),
+  list(nombre = "herramientas_graficar_tendencias_paralelas", ruta = file.path("3. SCRIPTS", "herramientas", "graficar_tendencias_paralelas.R")),
+  list(nombre = "herramientas_graficar_figuras_tesis",  ruta = file.path("3. SCRIPTS", "herramientas", "graficar_figuras_tesis.R"))
 )
 
 tiempos <- data.frame(paso = character(0), segundos = numeric(0), stringsAsFactors = FALSE)
@@ -113,10 +113,10 @@ valor_o_na <- function(df, condicion, columna) {
   as.numeric(fila[[columna]][1])
 }
 
-t16 <- leer_csv_seguro(file.path("resultados", "06_tratamiento_continuo", "T16_distribucion_exposicion.csv"))
-t24 <- leer_csv_seguro(file.path("resultados", "06_tratamiento_continuo", "T24_tres_medidas_real_vs_placebo.csv"))
-t08 <- leer_csv_seguro(file.path("resultados", "05_resultados_y_mecanismos", "T08_resumen_principal.csv"))
-t11b <- leer_csv_seguro(file.path("resultados", "05_resultados_y_mecanismos", "T11b_coeficientes_tendencias.csv"))
+t16 <- leer_csv_seguro(file.path("4. RESULTADOS", "06_tratamiento_continuo", "T16_distribucion_exposicion.csv"))
+t24 <- leer_csv_seguro(file.path("4. RESULTADOS", "06_tratamiento_continuo", "T24_tres_medidas_real_vs_placebo.csv"))
+t08 <- leer_csv_seguro(file.path("4. RESULTADOS", "05_resultados_y_mecanismos", "T08_resumen_principal.csv"))
+t11b <- leer_csv_seguro(file.path("4. RESULTADOS", "05_resultados_y_mecanismos", "T11b_coeficientes_tendencias.csv"))
 
 firmas_quintil <- if (is.null(t16)) rep(NA_real_, 5) else as.numeric(t16$firmas)
 
@@ -164,21 +164,21 @@ verificacion <- data.frame(
 verificacion$diferencia_absoluta <- abs(verificacion$valor_obtenido - verificacion$valor_esperado)
 verificacion$ok <- !is.na(verificacion$diferencia_absoluta) & verificacion$diferencia_absoluta <= 0.001
 
-dir.create("resultados", showWarnings = FALSE)
-write.csv(verificacion, file.path("resultados", "VERIFICACION.csv"), row.names = FALSE)
+dir.create("4. RESULTADOS", showWarnings = FALSE)
+write.csv(verificacion, file.path("4. RESULTADOS", "VERIFICACION.csv"), row.names = FALSE)
 
 print(verificacion, row.names = FALSE)
 
 n_mal <- sum(!verificacion$ok)
 if (n_mal > 0) {
   cat("\nAVISO:", n_mal, "cifra(s) difieren en más de 0.001 del valor de referencia.\n",
-      "Revisa resultados/VERIFICACION.csv y los logs de cada paso.\n")
+      "Revisa 4. RESULTADOS/VERIFICACION.csv y los logs de cada paso.\n")
 } else {
   cat("\nVERIFICACIÓN OK: las", nrow(verificacion), "cifras clave coinciden con la tesis",
       "(tolerancia 0.001).\n")
 }
 
-cat("\nGuardado: resultados/VERIFICACION.csv\n")
+cat("\nGuardado: 4. RESULTADOS/VERIFICACION.csv\n")
 cat("==============================================================================\n")
 cat("FIN de run_all.R\n")
 cat("==============================================================================\n")

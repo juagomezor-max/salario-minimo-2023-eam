@@ -13,10 +13,10 @@
 #   3. MECANISMOS DE AJUSTE: si el empleo no se mueve, ¿por dónde absorben
 #      el choque?
 #
-# Entradas: datos/panel_firma_eam_expalt_completo.rds
-#           datos/exposicion_alternativa_2022.rds
-#           datos/panel_analitico_firma_eam.rds
-# Salidas:  resultados/05_resultados_y_mecanismos/
+# Entradas: 1. DATOS/panel_firma_eam_expalt_completo.rds
+#           1. DATOS/exposicion_alternativa_2022.rds
+#           1. DATOS/panel_analitico_firma_eam.rds
+# Salidas:  4. RESULTADOS/05_resultados_y_mecanismos/
 # ==============================================================================
 
 # ------------------------------------------------------------------------------
@@ -122,7 +122,7 @@ library(fixest)
 library(ggplot2)
 library(flextable)
 
-CARPETA <- file.path("resultados", "05_resultados_y_mecanismos")
+CARPETA <- file.path("4. RESULTADOS", "05_resultados_y_mecanismos")
 dir.create(file.path(CARPETA, "figuras"), recursive = TRUE, showWarnings = FALSE)
 
 # El foco de la tesis pasó a los quintiles de exposición; el control por
@@ -195,15 +195,15 @@ COLOR_BAJA <- "#1F4E79"
 # ==============================================================================
 titulo("datos Y CONSTRUCCIÓN DE VARIABLES")
 
-panel <- read_rds(file.path("datos", "panel_firma_eam_expalt_completo.rds")) %>%
+panel <- read_rds(file.path("1. DATOS", "panel_firma_eam_expalt_completo.rds")) %>%
   mutate(NORDEMP = as.character(NORDEMP),
          ANIO = as.integer(as.character(ANIO)))
 
-alternativas <- read_rds(file.path("datos", "exposicion_alternativa_2022.rds")) %>%
+alternativas <- read_rds(file.path("1. DATOS", "exposicion_alternativa_2022.rds")) %>%
   mutate(NORDEMP = as.character(NORDEMP)) %>%
   select(NORDEMP, any_of(c("golpe_c", "golpe_a", "golpe_costo")))
 
-viejas <- read_rds(file.path("datos", "panel_analitico_firma_eam.rds")) %>%
+viejas <- read_rds(file.path("1. DATOS", "panel_analitico_firma_eam.rds")) %>%
   mutate(NORDEMP = as.character(NORDEMP),
          ANIO = as.integer(as.character(ANIO))) %>%
   filter(ANIO == 2022) %>%

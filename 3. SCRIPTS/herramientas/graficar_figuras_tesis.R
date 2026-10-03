@@ -5,24 +5,24 @@
 # G09c_trayectorias_q1_q5 en 05_resultados_y_mecanismos.R). Script
 # independiente: NO corre ni modifica 05_resultados_y_mecanismos.R ni
 # 06_tratamiento_continuo.R, y NO estima ningún modelo -- solo lee los CSV que
-# esos scripts ya dejaron en resultados/ y grafica. La única excepción es
+# esos scripts ya dejaron en 4. RESULTADOS/ y grafica. La única excepción es
 # G1, que recalcula el Kaitz y los quintiles de 2022 desde el panel (una
 # réplica literal de unas pocas líneas de 06, sin estimar nada), y solo si no
 # existe ya su propio CSV de apoyo.
 #
 # Entradas:
-#   resultados/06_tratamiento_continuo/T16_distribucion_exposicion.csv
-#   resultados/06_tratamiento_continuo/T21_trayectoria_salario_por_quintil.csv
-#   resultados/06_tratamiento_continuo/T24_tres_medidas_real_vs_placebo.csv
-#   resultados/06_tratamiento_continuo/T24_tres_medidas_real_vs_placebo_tamano.csv
-#   resultados/05_resultados_y_mecanismos/T11b_coeficientes_tendencias.csv
-#   resultados/05_resultados_y_mecanismos/T09_quintiles_exposicion.csv
-#   resultados/05_resultados_y_mecanismos/T09_quintiles_exposicion_tamano.csv
-#   resultados/05_resultados_y_mecanismos/T09b_evento_quintiles.csv
-#   resultados/05_resultados_y_mecanismos/T09b_evento_quintiles_tamano.csv
-#   datos/panel_analitico_firma_eam.rds (solo si RECALCULAR_G1 o no existe
+#   4. RESULTADOS/06_tratamiento_continuo/T16_distribucion_exposicion.csv
+#   4. RESULTADOS/06_tratamiento_continuo/T21_trayectoria_salario_por_quintil.csv
+#   4. RESULTADOS/06_tratamiento_continuo/T24_tres_medidas_real_vs_placebo.csv
+#   4. RESULTADOS/06_tratamiento_continuo/T24_tres_medidas_real_vs_placebo_tamano.csv
+#   4. RESULTADOS/05_resultados_y_mecanismos/T11b_coeficientes_tendencias.csv
+#   4. RESULTADOS/05_resultados_y_mecanismos/T09_quintiles_exposicion.csv
+#   4. RESULTADOS/05_resultados_y_mecanismos/T09_quintiles_exposicion_tamano.csv
+#   4. RESULTADOS/05_resultados_y_mecanismos/T09b_evento_quintiles.csv
+#   4. RESULTADOS/05_resultados_y_mecanismos/T09b_evento_quintiles_tamano.csv
+#   1. DATOS/panel_analitico_firma_eam.rds (solo si RECALCULAR_G1 o no existe
 #     el CSV de apoyo de G1)
-# Salidas: resultados/07_figuras_tesis/ (G1 a G6, .png, y el CSV de apoyo
+# Salidas: 4. RESULTADOS/07_figuras_tesis/ (G1 a G6, .png, y el CSV de apoyo
 #   de G1)
 #
 # Se corre desde la raíz del repositorio (abriendo salario-minimo-2023-eam.Rproj).
@@ -36,7 +36,7 @@ library(readr)
 library(ggplot2)
 library(scales)
 
-CARPETA <- file.path("resultados", "07_figuras_tesis")
+CARPETA <- file.path("4. RESULTADOS", "07_figuras_tesis")
 dir.create(CARPETA, recursive = TRUE, showWarnings = FALSE)
 CARPETA_ANEXO <- file.path(CARPETA, "anexo")
 dir.create(CARPETA_ANEXO, recursive = TRUE, showWarnings = FALSE)
@@ -85,7 +85,7 @@ if (!RECALCULAR_G1 && file.exists(RUTA_G1_CSV)) {
   cat("Recalculando Kaitz y quintiles 2022 desde el panel",
       "(réplica literal de 06_tratamiento_continuo.R, líneas ~138-160)...\n")
 
-  panel_g1 <- read_rds(file.path("datos", "panel_analitico_firma_eam.rds")) %>%
+  panel_g1 <- read_rds(file.path("1. DATOS", "panel_analitico_firma_eam.rds")) %>%
     mutate(NORDEMP = as.character(NORDEMP),
            ANIO = as.integer(as.character(ANIO)))
 
@@ -109,7 +109,7 @@ if (!RECALCULAR_G1 && file.exists(RUTA_G1_CSV)) {
 
 # --- Control: firmas por quintil contra T16 (06) -----------------------------
 conteo_g1 <- firmas_g1 %>% count(quintil) %>% arrange(quintil)
-t16 <- read_csv(file.path("resultados", "06_tratamiento_continuo",
+t16 <- read_csv(file.path("4. RESULTADOS", "06_tratamiento_continuo",
                           "T16_distribucion_exposicion.csv"), show_col_types = FALSE)
 
 esperado_g1 <- setNames(t16$firmas, c("Q1", "Q2", "Q3", "Q4", "Q5"))
@@ -151,7 +151,7 @@ guardar_figura(grafico_g1, "G1_distribucion_kaitz", 9)
 # ==============================================================================
 cat("\n=== G3. Trayectoria del costo por quintil ===\n")
 
-t21 <- read_csv(file.path("resultados", "06_tratamiento_continuo",
+t21 <- read_csv(file.path("4. RESULTADOS", "06_tratamiento_continuo",
                           "T21_trayectoria_salario_por_quintil.csv"), show_col_types = FALSE) %>%
   mutate(quintil_q = quintil_corto(quintil),
          tramo = ifelse(ANIO <= 2019, "2015-2019", "2021-2024"))
@@ -263,7 +263,7 @@ graficar_evento_quintiles <- function(datos_evento) {
     tema_figuras
 }
 
-t09b_sin <- leer_evento_quintiles(file.path("resultados", "05_resultados_y_mecanismos",
+t09b_sin <- leer_evento_quintiles(file.path("4. RESULTADOS", "05_resultados_y_mecanismos",
                                             "T09b_evento_quintiles.csv"))
 
 cat("Control impreso (Q5, 2023):\n")
@@ -283,16 +283,16 @@ guardar_figura(grafico_g4, "G4_evento_quintiles", 16)
 # ==============================================================================
 cat("\n=== G5. Real vs placebo por quintil (sin tamaño) ===\n")
 
-t24_sin <- read_csv(file.path("resultados", "06_tratamiento_continuo",
+t24_sin <- read_csv(file.path("4. RESULTADOS", "06_tratamiento_continuo",
                               "T24_tres_medidas_real_vs_placebo.csv"), show_col_types = FALSE) %>%
   mutate(control = "Sin control por tamaño")
-t24_con <- read_csv(file.path("resultados", "06_tratamiento_continuo",
+t24_con <- read_csv(file.path("4. RESULTADOS", "06_tratamiento_continuo",
                               "T24_tres_medidas_real_vs_placebo_tamano.csv"), show_col_types = FALSE) %>%
   mutate(control = "Con control por tamaño")
 
 # --- Control de escala del error estándar: T24.error_estandar (crudo) x 100
 # debe coincidir con T25.error_estandar_* (ya en puntos porcentuales).
-t25 <- read_csv(file.path("resultados", "06_tratamiento_continuo",
+t25 <- read_csv(file.path("4. RESULTADOS", "06_tratamiento_continuo",
                           "T25_resumen_medidas_q5.csv"), show_col_types = FALSE)
 chequeo_ee <- t24_sin %>%
   filter(resultado == "Costo laboral por trabajador (log)",
@@ -360,10 +360,10 @@ guardar_figura(grafico_g5, "G5_real_vs_placebo_quintil", 8)
 # ==============================================================================
 cat("\n=== G6. Quintiles, dos referencias (sin tamaño) ===\n")
 
-t09_sin <- read_csv(file.path("resultados", "05_resultados_y_mecanismos",
+t09_sin <- read_csv(file.path("4. RESULTADOS", "05_resultados_y_mecanismos",
                               "T09_quintiles_exposicion.csv"), show_col_types = FALSE) %>%
   mutate(control = "Sin control por tamaño")
-t09_con <- read_csv(file.path("resultados", "05_resultados_y_mecanismos",
+t09_con <- read_csv(file.path("4. RESULTADOS", "05_resultados_y_mecanismos",
                               "T09_quintiles_exposicion_tamano.csv"), show_col_types = FALSE) %>%
   mutate(control = "Con control por tamaño")
 
@@ -414,7 +414,7 @@ guardar_figura(grafico_g6, "G6_quintiles_referencias", 8)
 cat("\n=== Anexo: figuras con control por tamaño ===\n")
 
 # --- A4_1: evento de empleo, con y sin control por tamaño (antes G5) ------------
-t11b <- read_csv(file.path("resultados", "05_resultados_y_mecanismos",
+t11b <- read_csv(file.path("4. RESULTADOS", "05_resultados_y_mecanismos",
                            "T11b_coeficientes_tendencias.csv"), show_col_types = FALSE) %>%
   filter(variable == "log_empleo") %>%
   mutate(control = factor(control,
@@ -499,7 +499,7 @@ print(grafico_a4_3)
 guardar_figura(grafico_a4_3, "A4_3_quintiles_referencias_tamano", 12, carpeta = CARPETA_ANEXO)
 
 # --- A4_4: evento por quintil (dosis-respuesta), con control por tamaño --------
-t09b_con <- leer_evento_quintiles(file.path("resultados", "05_resultados_y_mecanismos",
+t09b_con <- leer_evento_quintiles(file.path("4. RESULTADOS", "05_resultados_y_mecanismos",
                                             "T09b_evento_quintiles_tamano.csv"))
 
 grafico_a4_4 <- graficar_evento_quintiles(t09b_con)

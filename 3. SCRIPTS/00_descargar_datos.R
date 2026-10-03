@@ -2,17 +2,17 @@
 # 00_descargar_datos.R
 #
 # Descarga el paquete de datos de replicacion desde Zenodo, verifica su
-# integridad y lo deja listo en datos/ para que 01-06 lo lean.
+# integridad y lo deja listo en 1. DATOS/ para que 01-06 lo lean.
 #
-# Si datos/ ya tiene los 3 paneles (panel_analitico_firma_eam.rds,
+# Si 1. DATOS/ ya tiene los 3 paneles (panel_analitico_firma_eam.rds,
 # panel_firma_eam_expalt_completo.rds, panel_establecimiento_formal.rds), no
 # hace nada.
 #
 # Pasos si faltan: descarga el zip del registro de Zenodo, verifica su MD5,
-# lo descomprime en datos/_paquete_zenodo/ (se conserva como referencia:
+# lo descomprime en 1. DATOS/_paquete_zenodo/ (se conserva como referencia:
 # trae CODEBOOK.csv, README.md y docs/originales/ del paquete), verifica
 # cada archivo contra el CHECKSUMS.sha256 que viene dentro del zip, y copia
-# los 3 .rds a datos/ (ruta plana que esperan 01-06).
+# los 3 .rds a 1. DATOS/ (ruta plana que esperan 01-06).
 #
 # Si algo no coincide (descarga incompleta, MD5 distinto, SHA256 distinto,
 # archivo faltante), el script se detiene con un mensaje claro -- no sigue
@@ -23,7 +23,7 @@ ZENODO_DOI <- "10.5281/zenodo.23097300"
 ZENODO_URL <- "https://zenodo.org/records/23097300/files/zenodo_replicacion.zip?download=1"
 ZIP_MD5    <- "fbf8203ade288dcf0e330e118870d60a"
 
-CARPETA_DATOS   <- "datos"
+CARPETA_DATOS   <- "1. DATOS"
 CARPETA_PAQUETE <- file.path(CARPETA_DATOS, "_paquete_zenodo")
 ZIP_DESTINO     <- file.path(CARPETA_DATOS, "_zenodo_replicacion_descarga.zip")
 
@@ -37,7 +37,7 @@ ya_estan <- all(file.exists(file.path(CARPETA_DATOS, PANELES)))
 
 if (ya_estan) {
 
-  cat("datos/ ya tiene los 3 paneles -- no se descarga nada.\n")
+  cat("1. DATOS/ ya tiene los 3 paneles -- no se descarga nada.\n")
 
 } else {
 

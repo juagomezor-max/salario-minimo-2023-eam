@@ -14,15 +14,15 @@
 # raíz del repositorio y encuentra las carpetas.
 #
 # Resultados (tablas en Word y CSV; gráficos en la subcarpeta "figuras"):
-#   resultados/01_descriptivos_y_contexto/Descriptivos/   salario mínimo, Kaitz, perfil de firmas, comparación simple, brechas
-#   resultados/01_descriptivos_y_contexto/Principal/      primer eslabón y empleo total (+ compendio con todas las tablas)
-#   resultados/01_descriptivos_y_contexto/Estimacion/     resultados exploratorios, compresión salarial, tamaño
-#   resultados/01_descriptivos_y_contexto/Validaciones/   revisión de carga de datos y supuestos del modelo
-#   resultados/01_descriptivos_y_contexto/Robustez/       reservada para el script de validaciones
+#   4. RESULTADOS/01_descriptivos_y_contexto/Descriptivos/   salario mínimo, Kaitz, perfil de firmas, comparación simple, brechas
+#   4. RESULTADOS/01_descriptivos_y_contexto/Principal/      primer eslabón y empleo total (+ compendio con todas las tablas)
+#   4. RESULTADOS/01_descriptivos_y_contexto/Estimacion/     resultados exploratorios, compresión salarial, tamaño
+#   4. RESULTADOS/01_descriptivos_y_contexto/Validaciones/   revisión de carga de datos y supuestos del modelo
+#   4. RESULTADOS/01_descriptivos_y_contexto/Robustez/       reservada para el script de validaciones
 #
-# Los paneles de datos/ ya vienen ampliados (costos laborales por categoría,
+# Los paneles de 1. DATOS/ ya vienen ampliados (costos laborales por categoría,
 # tipos de contrato, inversión, producción y otras variables) -- se obtienen
-# corriendo scripts/00_descargar_datos.R, que los trae del paquete de
+# corriendo 3. SCRIPTS/00_descargar_datos.R, que los trae del paquete de
 # replicación en Zenodo. Si falta alguna columna, la sección 1 lo avisa.
 # ==============================================================================
 
@@ -136,11 +136,11 @@ library(flextable)  # para las tablas en Word (si falta: renv::install("flextabl
 
 # Definimos las carpetas de salida. Cada una tiene una subcarpeta "figuras"
 # para los gráficos. Las creamos si no existen.
-CARPETA_DESCRIPTIVOS <- file.path("resultados", "01_descriptivos_y_contexto", "Descriptivos")
-CARPETA_PRINCIPAL    <- file.path("resultados", "01_descriptivos_y_contexto", "Principal")
-CARPETA_ESTIMACION   <- file.path("resultados", "01_descriptivos_y_contexto", "Estimacion")
-CARPETA_VALIDACIONES <- file.path("resultados", "01_descriptivos_y_contexto", "Validaciones")
-CARPETA_ROBUSTEZ     <- file.path("resultados", "01_descriptivos_y_contexto", "Robustez")
+CARPETA_DESCRIPTIVOS <- file.path("4. RESULTADOS", "01_descriptivos_y_contexto", "Descriptivos")
+CARPETA_PRINCIPAL    <- file.path("4. RESULTADOS", "01_descriptivos_y_contexto", "Principal")
+CARPETA_ESTIMACION   <- file.path("4. RESULTADOS", "01_descriptivos_y_contexto", "Estimacion")
+CARPETA_VALIDACIONES <- file.path("4. RESULTADOS", "01_descriptivos_y_contexto", "Validaciones")
+CARPETA_ROBUSTEZ     <- file.path("4. RESULTADOS", "01_descriptivos_y_contexto", "Robustez")
 
 for (carpeta in c(CARPETA_DESCRIPTIVOS, CARPETA_PRINCIPAL, CARPETA_ESTIMACION,
                   CARPETA_VALIDACIONES, CARPETA_ROBUSTEZ)) {
@@ -222,12 +222,12 @@ titulo("1. CARGA DE DATOS")
 
 # --- 1.1 Cargamos las dos bases ------------------------------------------------
 # Panel de firmas: una fila por firma y año (2020 no está)
-panel <- read_rds(file.path("datos", "panel_analitico_firma_eam.rds")) %>%
+panel <- read_rds(file.path("1. DATOS", "panel_analitico_firma_eam.rds")) %>%
   mutate(NORDEMP = as.character(NORDEMP),
          ANIO = as.integer(as.character(ANIO)))
 
 # Panel de plantas: solo lo usamos para comprobar el salario promedio (1.4)
-plantas <- read_rds(file.path("datos", "panel_establecimiento_formal.rds")) %>%
+plantas <- read_rds(file.path("1. DATOS", "panel_establecimiento_formal.rds")) %>%
   mutate(NORDEMP = as.character(NORDEMP),
          ANIO = as.integer(as.character(ANIO)))
 
@@ -256,8 +256,8 @@ if (length(faltan_originales) > 0) {
 }
 if (length(faltan_ampliadas) > 0) {
   stop("Faltan columnas ampliadas: ", paste(faltan_ampliadas, collapse = ", "),
-       "\nVerifica que datos/ venga del paquete de replicacion en Zenodo ",
-       "(corre scripts/00_descargar_datos.R).")
+       "\nVerifica que 1. DATOS/ venga del paquete de replicacion en Zenodo ",
+       "(corre 3. SCRIPTS/00_descargar_datos.R).")
 }
 cat("Todas las columnas que usa el script están en el panel.\n")
 

@@ -76,7 +76,7 @@ library(ggplot2)
 library(flextable)
 
 # Carpeta de salida propia, para no pisar nada de lo que ya está validado
-CARPETA <- file.path("resultados", "06_tratamiento_continuo")
+CARPETA <- file.path("4. RESULTADOS", "06_tratamiento_continuo")
 dir.create(file.path(CARPETA, "figuras"), recursive = TRUE, showWarnings = FALSE)
 
 # Si el paquete contdid no está instalado, el script corre igual y se salta C6.
@@ -135,7 +135,7 @@ COLOR_BAJA <- "#1F4E79"
 # ==============================================================================
 titulo("datos Y EXPOSICIÓN")
 
-panel <- read_rds(file.path("datos", "panel_analitico_firma_eam.rds")) %>%
+panel <- read_rds(file.path("1. DATOS", "panel_analitico_firma_eam.rds")) %>%
   mutate(NORDEMP = as.character(NORDEMP),
          ANIO = as.integer(as.character(ANIO)),
          salario_promedio = ifelse(empleo_total > 0,

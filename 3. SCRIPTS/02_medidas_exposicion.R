@@ -9,9 +9,9 @@
 # de 2023 y las valida. NO estima efectos sobre empleo: la medida principal se
 # elige por el primer eslabón, según la regla ya comiteada en NOTA_DECISIONES.md.
 #
-# Entrada:  datos/panel_firma_eam_expalt_completo.rds
-# Salidas:  datos/exposicion_alternativa_2022.rds   (una fila por firma)
-#           resultados/02_medidas_exposicion/       (tablas y figuras)
+# Entrada:  1. DATOS/panel_firma_eam_expalt_completo.rds
+# Salidas:  1. DATOS/exposicion_alternativa_2022.rds   (una fila por firma)
+#           4. RESULTADOS/02_medidas_exposicion/       (tablas y figuras)
 #
 # Para correrlo abrimos salario-minimo-2023-eam.Rproj, así R trabaja desde la raíz del
 # repositorio y encuentra las carpetas.
@@ -28,7 +28,7 @@
 #               de obreros (Bite2022_obreros) -- 643 recuperadas (sección 7,
 #               tabla T06).
 # Depende de:   (nada propio del proyecto -- lee directamente
-#               datos/panel_firma_eam_expalt_completo.rds)
+#               1. DATOS/panel_firma_eam_expalt_completo.rds)
 # Alimenta a:   03_primer_eslabon_medidas.R (prueba cuál medida
 #               predice el choque), 04_decision_medida.R (cierra
 #               la decisión de medida principal)
@@ -114,7 +114,7 @@ library(readr)
 library(ggplot2)
 library(flextable)
 
-CARPETA <- file.path("resultados", "02_medidas_exposicion")
+CARPETA <- file.path("4. RESULTADOS", "02_medidas_exposicion")
 dir.create(file.path(CARPETA, "figuras"), recursive = TRUE, showWarnings = FALSE)
 
 titulo <- function(texto) {
@@ -199,7 +199,7 @@ cat("Razón costo total / salario:", round(COSTO_MINIMO_2023_ANUAL_MILES / SMLV_
 # ==============================================================================
 titulo("1. CARGA DE DATOS")
 
-panel <- read_rds(file.path("datos", "panel_firma_eam_expalt_completo.rds")) %>%
+panel <- read_rds(file.path("1. DATOS", "panel_firma_eam_expalt_completo.rds")) %>%
   mutate(NORDEMP = as.character(NORDEMP),
          ANIO = as.integer(as.character(ANIO)))
 
@@ -581,7 +581,7 @@ titulo("7. COMPARACIÓN CON EL KAITZ ACTUAL")
 # Traemos Bite2022_obreros y la proporción de obreros desde el panel analítico
 # que ya está en uso. Si el archivo no está, seguimos sin la comparación en vez
 # de detener el script.
-ruta_panel_viejo <- file.path("datos", "panel_analitico_firma_eam.rds")
+ruta_panel_viejo <- file.path("1. DATOS", "panel_analitico_firma_eam.rds")
 
 if (file.exists(ruta_panel_viejo)) {
   
@@ -755,8 +755,8 @@ if (exists("comparacion") && "Bite2022_obreros" %in% names(comparacion)) {
 # ==============================================================================
 titulo("9. GUARDAR RESULTADOS")
 
-write_rds(exposicion, file.path("datos", "exposicion_alternativa_2022.rds"))
-cat("Guardado: datos/exposicion_alternativa_2022.rds con", nrow(exposicion), "firmas\n")
+write_rds(exposicion, file.path("1. DATOS", "exposicion_alternativa_2022.rds"))
+cat("Guardado: 1. DATOS/exposicion_alternativa_2022.rds con", nrow(exposicion), "firmas\n")
 
 save_as_docx(values = compendio, path = file.path(CARPETA, "00_compendio_tablas.docx"))
 cat("Compendio guardado con", length(compendio), "tablas.\n")

@@ -2,8 +2,8 @@ cff-version: 1.2.0
 message: >-
   Si usa este código, por favor cítelo como se indica a continuación.
 title: >-
-  Replication Code for "Rigideces laborales y decisiones de la firma"
-  (Labor Rigidities and Firm Decisions)
+  Replication Code for "Salario mínimo y decisiones de la firma: evidencia
+  del aumento de 2023 en la industria manufacturera Colombiana"
 type: software
 authors:
   - family-names: Gómez Orduz
@@ -14,24 +14,29 @@ authors:
 version: "1.0"
 date-released: "2026-10-02"
 license: MIT
+repository-code: "https://github.com/juagomezor-max/salario-minimo-2023-eam"
+keywords:
+  - salario mínimo
+  - índice de Kaitz
+  - estudio de evento
+  - Encuesta Anual Manufacturera
+  - Colombia
 abstract: >-
   Código de estimación (R) para la tesis de Maestría en Economía Aplicada
-  "Rigideces laborales y decisiones de la firma" (Universidad de los
-  Andes), sobre la respuesta de las firmas manufactureras colombianas al
-  aumento del salario mínimo de 2023, usando la Encuesta Anual
-  Manufacturera (EAM) del DANE. Los datos no se incluyen en este
-  repositorio; se descargan de un registro aparte en Zenodo (ver
-  related-identifiers).
-related-identifiers:
+  "Salario mínimo y decisiones de la firma: evidencia del aumento de 2023
+  en la industria manufacturera Colombiana" (Universidad de los Andes),
+  sobre la respuesta de las firmas manufactureras Colombianas al aumento
+  del salario mínimo de 2023, usando la Encuesta Anual Manufacturera (EAM)
+  del DANE. Los datos no se incluyen en este repositorio; se descargan de
+  un registro aparte en Zenodo (ver identifiers).
+identifiers:
   - type: doi
     value: 10.5281/zenodo.23097300
-    relation: isSupplementTo
     description: >-
       Paquete de datos de replicación (recortado) usado por este código,
       publicado en Zenodo.
   - type: doi
     value: 10.5281/zenodo.19675581
-    relation: isDerivedFrom
     description: >-
       Conjunto de microdatos completo del que se derivó el paquete de
       datos de replicación (Gómez Orduz y Jácome, 2026, v1.1).
@@ -43,12 +48,14 @@ references:
         orcid: "https://orcid.org/0009-0001-2013-8352"
       - family-names: Jácome
         given-names: Nicolás
-    title: "Rigideces laborales y decisiones de la firma"
+    title: >-
+      Salario mínimo y decisiones de la firma: evidencia del aumento de
+      2023 en la industria manufacturera Colombiana
     notes: >-
       Tesis de Maestría en Economía Aplicada, Universidad de los Andes.
       Director: Andrés Ham.
     year: 2026
-  - type: dataset
+  - type: data
     authors:
       - family-names: Gómez Orduz
         given-names: Julio Alejandro
@@ -64,3 +71,19 @@ references:
     publisher:
       name: Zenodo
     doi: 10.5281/zenodo.19675581
+  - type: data
+    authors:
+      - family-names: Gómez Orduz
+        given-names: Julio Alejandro
+        orcid: "https://orcid.org/0009-0001-2013-8352"
+      - family-names: Jácome
+        given-names: Nicolás
+    title: >-
+      Replication Data Package (Trimmed) for "Rigideces laborales y
+      decisiones de la firma": Firm- and Establishment-Level Panels from
+      the Colombian Annual Manufacturing Survey (EAM), 2008-2024
+    version: "1.0"
+    year: 2026
+    publisher:
+      name: Zenodo
+    doi: 10.5281/zenodo.23097300

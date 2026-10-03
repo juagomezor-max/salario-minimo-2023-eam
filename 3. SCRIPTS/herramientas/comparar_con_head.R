@@ -1,8 +1,8 @@
-# Compara los CSV y .md de una o mas carpetas de "resultados/" contra la
+# Compara los CSV y .md de una o mas carpetas de "4. RESULTADOS/" contra la
 # version en HEAD de git. Ignora .docx y .png (y cualquier otra extension).
 #
 # Uso (desde la raiz del repo):
-#   Rscript "scripts/herramientas/comparar_con_head.R" "resultados/Carpeta1" ["resultados/Carpeta2" ...]
+#   Rscript "3. SCRIPTS/herramientas/comparar_con_head.R" "4. RESULTADOS/Carpeta1" ["4. RESULTADOS/Carpeta2" ...]
 #
 # Estados posibles por archivo:
 #   idéntico            - existe en HEAD y en disco, contenido igual (tolerancia 1e-8 en numeros)
@@ -16,8 +16,8 @@ TOL <- 1e-8
 
 args <- commandArgs(trailingOnly = TRUE)
 if (length(args) == 0) {
-  cat("Uso: Rscript \"scripts/herramientas/comparar_con_head.R\" <carpeta1> [carpeta2 ...]\n")
-  cat("Las carpetas deben darse relativas a la raiz del repo, p. ej. \"resultados/02_medidas_exposicion\"\n")
+  cat("Uso: Rscript \"3. SCRIPTS/herramientas/comparar_con_head.R\" <carpeta1> [carpeta2 ...]\n")
+  cat("Las carpetas deben darse relativas a la raiz del repo, p. ej. \"4. RESULTADOS/02_medidas_exposicion\"\n")
   quit(save = "no", status = 1)
 }
 

@@ -8,10 +8,10 @@
 # Cierra la decisión de qué medida de exposición usa la tesis y produce la
 # estimación creíble del primer eslabón.
 #
-# Entradas: datos/panel_firma_eam_expalt_completo.rds
-#           datos/exposicion_alternativa_2022.rds
-#           datos/panel_analitico_firma_eam.rds
-# Salidas:  resultados/04_decision_medida/
+# Entradas: 1. DATOS/panel_firma_eam_expalt_completo.rds
+#           1. DATOS/exposicion_alternativa_2022.rds
+#           1. DATOS/panel_analitico_firma_eam.rds
+# Salidas:  4. RESULTADOS/04_decision_medida/
 # ==============================================================================
 
 # ------------------------------------------------------------------------------
@@ -115,7 +115,7 @@ library(fixest)
 library(ggplot2)
 library(flextable)
 
-CARPETA <- file.path("resultados", "04_decision_medida")
+CARPETA <- file.path("4. RESULTADOS", "04_decision_medida")
 dir.create(file.path(CARPETA, "figuras"), recursive = TRUE, showWarnings = FALSE)
 
 titulo <- function(texto) {
@@ -173,7 +173,7 @@ SMLV_2023_ANUAL_MILES <- 1160000 * 12 / 1000
 # ==============================================================================
 titulo("1. CONSTRUCCIÓN DE BITE Y EXPOSURE CON BASE 2019")
 
-panel <- read_rds(file.path("datos", "panel_firma_eam_expalt_completo.rds")) %>%
+panel <- read_rds(file.path("1. DATOS", "panel_firma_eam_expalt_completo.rds")) %>%
   mutate(NORDEMP = as.character(NORDEMP),
          ANIO = as.integer(as.character(ANIO)))
 
@@ -216,7 +216,7 @@ cat("Firmas con bite 2019:", sum(!is.na(base_2019$bite_2019)), "\n")
 cat("Firmas con exposure 2019:", sum(!is.na(base_2019$exposure_2019)), "\n")
 
 # --- Verificación de la réplica (BLOQUEANTE) ------------------------------------
-viejas <- read_rds(file.path("datos", "panel_analitico_firma_eam.rds")) %>%
+viejas <- read_rds(file.path("1. DATOS", "panel_analitico_firma_eam.rds")) %>%
   mutate(NORDEMP = as.character(NORDEMP),
          ANIO = as.integer(as.character(ANIO))) %>%
   filter(ANIO == 2022) %>%
@@ -247,7 +247,7 @@ if (cor_replica < 0.99) {
 # ==============================================================================
 titulo("2. BASE DE TRABAJO")
 
-alternativas <- read_rds(file.path("datos", "exposicion_alternativa_2022.rds")) %>%
+alternativas <- read_rds(file.path("1. DATOS", "exposicion_alternativa_2022.rds")) %>%
   mutate(NORDEMP = as.character(NORDEMP))
 
 outcomes <- panel %>%

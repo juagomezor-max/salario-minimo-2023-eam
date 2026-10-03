@@ -1,0 +1,37 @@
+{
+  "title": "Código de replicación: Salario mínimo y decisiones de la firma: evidencia del aumento de 2023 en la industria manufacturera Colombiana",
+  "upload_type": "software",
+  "language": "spa",
+  "description": "<p>Código de estimación (R) para la tesis de Maestría en Economía Aplicada \"Salario mínimo y decisiones de la firma: evidencia del aumento de 2023 en la industria manufacturera Colombiana\" (Universidad de los Andes), sobre la respuesta de las firmas manufactureras Colombianas al aumento del salario mínimo de 2023, usando la Encuesta Anual Manufacturera (EAM) del DANE. Los datos no se incluyen en este repositorio; se descargan de un paquete de replicación aparte publicado en Zenodo.</p><p><em>English summary: Replication code (R) for the Master's thesis \"Minimum wage and firm decisions: evidence from the 2023 increase in Colombian manufacturing\" (Universidad de los Andes), on how Colombian manufacturing firms responded to the 2023 minimum-wage increase, using the DANE Annual Manufacturing Survey (EAM). Data are not included in this repository; they are downloaded from a separate replication data package published on Zenodo.</em></p>",
+  "creators": [
+    {
+      "name": "Gómez Orduz, Julio Alejandro",
+      "orcid": "0009-0001-2013-8352",
+      "affiliation": "Universidad de los Andes"
+    },
+    {
+      "name": "Jácome, Nicolás",
+      "affiliation": "Universidad de los Andes"
+    }
+  ],
+  "keywords": [
+    "salario mínimo",
+    "índice de Kaitz",
+    "estudio de evento",
+    "Encuesta Anual Manufacturera",
+    "Colombia"
+  ],
+  "license": "MIT",
+  "related_identifiers": [
+    {
+      "identifier": "10.5281/zenodo.23097300",
+      "relation": "requires",
+      "resource_type": "dataset"
+    },
+    {
+      "identifier": "10.5281/zenodo.19675581",
+      "relation": "references",
+      "resource_type": "dataset"
+    }
+  ]
+}

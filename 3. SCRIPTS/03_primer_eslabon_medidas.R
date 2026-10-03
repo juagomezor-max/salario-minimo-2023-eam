@@ -12,10 +12,10 @@
 # la medida principal se elige por este resultado y NO se revisa después según
 # los resultados de empleo. Este script produce esa decisión.
 #
-# Entradas: datos/panel_firma_eam_expalt_completo.rds
-#           datos/exposicion_alternativa_2022.rds
-#           datos/panel_analitico_firma_eam.rds   (para Bite y Exposure)
-# Salidas:  resultados/03_primer_eslabon_medidas/
+# Entradas: 1. DATOS/panel_firma_eam_expalt_completo.rds
+#           1. DATOS/exposicion_alternativa_2022.rds
+#           1. DATOS/panel_analitico_firma_eam.rds   (para Bite y Exposure)
+# Salidas:  4. RESULTADOS/03_primer_eslabon_medidas/
 #
 # Para correrlo abrimos salario-minimo-2023-eam.Rproj.
 # ==============================================================================
@@ -117,7 +117,7 @@ library(fixest)
 library(ggplot2)
 library(flextable)
 
-CARPETA <- file.path("resultados", "03_primer_eslabon_medidas")
+CARPETA <- file.path("4. RESULTADOS", "03_primer_eslabon_medidas")
 dir.create(file.path(CARPETA, "figuras"), recursive = TRUE, showWarnings = FALSE)
 
 titulo <- function(texto) {
@@ -171,7 +171,7 @@ COLOR_BAJA <- "#1F4E79"
 # ==============================================================================
 titulo("1. CONSTRUCCIÓN DEL OUTCOME")
 
-panel <- read_rds(file.path("datos", "panel_firma_eam_expalt_completo.rds")) %>%
+panel <- read_rds(file.path("1. DATOS", "panel_firma_eam_expalt_completo.rds")) %>%
   mutate(NORDEMP = as.character(NORDEMP),
          ANIO = as.integer(as.character(ANIO)))
 
@@ -244,10 +244,10 @@ print(round(quantile(outcomes$crecimiento_2019,
 # ==============================================================================
 titulo("2. CARGA DE LAS CINCO MEDIDAS")
 
-alternativas <- read_rds(file.path("datos", "exposicion_alternativa_2022.rds")) %>%
+alternativas <- read_rds(file.path("1. DATOS", "exposicion_alternativa_2022.rds")) %>%
   mutate(NORDEMP = as.character(NORDEMP))
 
-viejas <- read_rds(file.path("datos", "panel_analitico_firma_eam.rds")) %>%
+viejas <- read_rds(file.path("1. DATOS", "panel_analitico_firma_eam.rds")) %>%
   mutate(NORDEMP = as.character(NORDEMP),
          ANIO = as.integer(as.character(ANIO))) %>%
   filter(ANIO == 2022) %>%

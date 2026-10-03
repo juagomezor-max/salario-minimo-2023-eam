@@ -1,7 +1,8 @@
-# Datos: se descargan con scripts/00_descargar_datos.R (ver datos/README.md).
-# No se versionan -- son pesados y ya estan publicados en Zenodo.
-datos/*
-!datos/README.md
+# Datos: se descargan con "3. SCRIPTS/00_descargar_datos.R" (ver
+# "1. DATOS/README.md"). No se versionan -- son pesados y ya estan
+# publicados en Zenodo.
+1. DATOS/*
+!1. DATOS/README.md
 
 # renv: solo se versionan renv.lock, renv/activate.R y renv/.gitignore.
 # El resto (biblioteca local, cache, sandbox) lo recrea renv::restore().
