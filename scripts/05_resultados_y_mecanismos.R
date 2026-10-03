@@ -132,7 +132,16 @@ dir.create(file.path(CARPETA, "figuras"), recursive = TRUE, showWarnings = FALSE
 # run_all.R controla esta bandera con la variable de entorno
 # CORRER_HONESTDID; si se corre este script suelto (sin run_all.R), el
 # valor por defecto es FALSE.
-CORRER_HONESTDID <- as.logical(Sys.getenv("CORRER_HONESTDID", unset = "FALSE"))
+# as.logical() ya entiende "TRUE"/"true"/"T"; la segunda pasada cubre "1"
+# (y "0"), que as.logical() por sí solo no convierte (da NA). Si ninguna de
+# las dos conversiones da un valor, se asume FALSE.
+convertir_a_logico <- function(x) {
+  valor <- as.logical(x)
+  if (is.na(valor)) valor <- as.logical(suppressWarnings(as.integer(x)))
+  if (is.na(valor)) valor <- FALSE
+  valor
+}
+CORRER_HONESTDID <- convertir_a_logico(Sys.getenv("CORRER_HONESTDID", unset = "FALSE"))
 
 titulo <- function(texto) {
   cat("\n", strrep("=", 78), "\n", texto, "\n", strrep("=", 78), "\n", sep = "")
