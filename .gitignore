@@ -20,6 +20,10 @@ renv/staging/
 .Ruserdata
 .Rproj.user/
 
+# Configuracion local de Claude Code (incluye includeCoAuthoredBy: false,
+# especifico de quien trabaja en el repo, no del repo en si)
+.claude/
+
 # Device de graficos por defecto que R crea si algun plot no usa ggsave/pdf()
 Rplots.pdf
 
